@@ -79,4 +79,4 @@ $base-font-size: 15px;
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Filippo-B)
+- Frontend Mentor - [@Filippo-B](https://www.frontendmentor.io/profile/Filippo-B)
