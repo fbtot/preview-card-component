@@ -20,7 +20,6 @@ $base-font-size: 15px;
 }
 
 // Function that converts any pixel measure into rem.
-// Is there a way to strip units from a number?
 @function pxrem($px) {
   $foo: math.div($px, strip-units($base-font-size));
 
