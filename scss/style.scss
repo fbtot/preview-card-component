@@ -21,10 +21,10 @@ $base-font-size: 15px;
 
 // Function that converts any pixel measure into rem.
 @function pxrem($px) {
-  $foo: math.div($px, strip-units($base-font-size));
+  $strip-unit-base-font: math.div($px, strip-units($base-font-size));
 
   // Only two digits after the decimal point. Thanks to https://stackoverflow.com/questions/10369643/rounding-numbers-in-sass-and-adjusting-the-amount-of-decimals/38449536
-  $result: math.div(round($foo * 100), 100);
+  $result: math.div(round($strip-unit-base-font * 100), 100);
 
   @return $result + rem;
 }
