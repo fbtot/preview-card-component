@@ -24,7 +24,7 @@ $base-font-size: 15px;
   $foo: math.div($px, strip-units($base-font-size));
 
   // Only two digits after the decimal point. Thanks to https://stackoverflow.com/questions/10369643/rounding-numbers-in-sass-and-adjusting-the-amount-of-decimals/38449536
-  $result: round($foo * 100) / 100;
+  $result: math.div(round($foo * 100), 100);
 
   @return $result + rem;
 }
@@ -67,6 +67,16 @@ button {
     ----------------------------------------------------- § Card container
 */
 
+.page {
+  display: grid;
+}
+
+@media screen and (min-width: 680px) {
+  .page {
+    height: 100vh;
+  }
+}
+
 .preview-card-container {
   border-radius: 1rem;
   overflow: hidden;
@@ -79,6 +89,7 @@ button {
 @media screen and (min-width: 680px) {
   .preview-card-container {
     grid-auto-flow: column;
+    align-self: center;
   }
 }
 

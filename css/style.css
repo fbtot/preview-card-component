@@ -34,6 +34,15 @@ button {
 /*  
     ----------------------------------------------------- § Card container
 */
+.page {
+  display: grid;
+}
+
+@media screen and (min-width: 680px) {
+  .page {
+    height: 100vh;
+  }
+}
 .preview-card-container {
   border-radius: 1rem;
   overflow: hidden;
@@ -46,6 +55,7 @@ button {
 @media screen and (min-width: 680px) {
   .preview-card-container {
     grid-auto-flow: column;
+    align-self: center;
   }
 }
 @media screen and (min-width: 920px) {
