@@ -59,8 +59,8 @@ h2 {
   color: $very-light-gray;
 }
 
-button {
-  cursor: pointer;
+a {
+  text-decoration: none;
 }
 
 /*  
@@ -116,11 +116,11 @@ button {
   &:nth-of-type(3n + 1) {
     background-color: $bright-orange;
 
-    .preview-card__button {
+    .preview-card__link {
       color: $bright-orange;
 
       &:hover {
-        @extend %hover-buttons;
+        @extend %hover-links;
       }
     }
   }
@@ -129,11 +129,11 @@ button {
   &:nth-of-type(3n + 2) {
     background-color: $dark-cyan;
 
-    .preview-card__button {
+    .preview-card__link {
       color: $dark-cyan;
 
       &:hover {
-        @extend %hover-buttons;
+        @extend %hover-links;
       }
     }
   }
@@ -142,17 +142,17 @@ button {
   &:nth-of-type(3n + 3) {
     background-color: $very-dark-cyan;
 
-    .preview-card__button {
+    .preview-card__link {
       color: $very-dark-cyan;
 
       &:hover {
-        @extend %hover-buttons;
+        @extend %hover-links;
       }
     }
   }
 } /* end .preview-card */
 
-%hover-buttons {
+%hover-links {
   color: $very-light-gray;
 }
 
@@ -165,7 +165,8 @@ button {
   margin-bottom: 1.5em;
 }
 
-.preview-card__button {
+.preview-card__link {
+  display: inline-block;
   padding: 0.8rem 2rem;
   border-radius: 100px;
   border: 2px solid $very-light-gray;
