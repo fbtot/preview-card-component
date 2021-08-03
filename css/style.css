@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/*  
+    ----------------------------------------------------- § HTML
+*/
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: "Lexend Deca", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(255, 255, 255, 0.75);
+  background-color: #f2f2f2;
+}
+
+.m0p0, .preview-card__text, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: "Big Shoulders Display", cursive;
+  text-transform: uppercase;
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+  color: #f2f2f2;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*  
+    ----------------------------------------------------- § Card container
+*/
+.preview-card-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 1.5rem;
+  display: grid;
+  grid-auto-flow: row;
+  max-width: 920px;
+}
+
+@media screen and (min-width: 680px) {
+  .preview-card-container {
+    grid-auto-flow: column;
+  }
+}
+@media screen and (min-width: 920px) {
+  .preview-card-container {
+    grid-auto-flow: column;
+    margin: 1.5rem auto;
+  }
+}
+.preview-card-container__title {
+  display: none;
+}
+
+/*  
+    ----------------------------------------------------- § Cards
+*/
+.preview-card {
+  padding: 3.33rem 3.33rem 3.33rem 3.33rem;
+}
+.preview-card:nth-of-type(3n + 1) {
+  background-color: #e38826;
+}
+.preview-card:nth-of-type(3n + 1) .preview-card__button {
+  color: #e38826;
+}
+.preview-card:nth-of-type(3n + 2) {
+  background-color: #006970;
+}
+.preview-card:nth-of-type(3n + 2) .preview-card__button {
+  color: #006970;
+}
+.preview-card:nth-of-type(3n + 3) {
+  background-color: #004241;
+}
+.preview-card:nth-of-type(3n + 3) .preview-card__button {
+  color: #004241;
+}
+/* end .preview-card */
+.preview-card:nth-of-type(3n + 1) .preview-card__button:hover, .preview-card:nth-of-type(3n + 2) .preview-card__button:hover, .preview-card:nth-of-type(3n + 3) .preview-card__button:hover {
+  color: #f2f2f2;
+}
+
+.preview-card__img {
+  margin-bottom: 2rem;
+}
+
+.preview-card__text {
+  line-height: 1.7em;
+  margin-bottom: 1.5em;
+}
+
+.preview-card__button {
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  border: 2px solid #f2f2f2;
+  background-color: #f2f2f2;
+}
+.preview-card__button:hover {
+  background-color: transparent;
+  color: #f2f2f2;
+}
+
+/*# sourceMappingURL=style.css.map */

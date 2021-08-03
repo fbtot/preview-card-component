@@ -1,0 +1,168 @@
+@use "sass:math";
+
+// Colors
+$bright-orange: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+
+$transparent-white: rgba(255, 255, 255, 0.75); // (paragraphs)
+$very-light-gray: hsl(0, 0%, 95%); // (background, headings, buttons)
+
+// Typography
+$primary-font: "Lexend Deca", sans-serif; // body
+$secondary-font: "Big Shoulders Display", cursive; // hedings
+
+$base-font-size: 15px;
+
+// Function to strip the units from a number. See https://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
+@function strip-units($number) {
+  @return math.div($number, $number * 0 + 1);
+}
+
+// Function that converts any pixel measure into rem.
+// Is there a way to strip units from a number?
+@function pxrem($px) {
+  $foo: math.div($px, strip-units($base-font-size));
+
+  // Only two digits after the decimal point. Thanks to https://stackoverflow.com/questions/10369643/rounding-numbers-in-sass-and-adjusting-the-amount-of-decimals/38449536
+  $result: round($foo * 100) / 100;
+
+  @return $result + rem;
+}
+
+/*  
+    ----------------------------------------------------- § HTML
+*/
+
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  font-family: $primary-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $transparent-white;
+  background-color: $very-light-gray;
+}
+
+.m0p0 {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  @extend .m0p0;
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+  color: $very-light-gray;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*  
+    ----------------------------------------------------- § Card container
+*/
+
+.preview-card-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 1.5rem;
+  display: grid;
+  grid-auto-flow: row;
+  max-width: 920px;
+}
+
+@media screen and (min-width: 680px) {
+  .preview-card-container {
+    grid-auto-flow: column;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .preview-card-container {
+    grid-auto-flow: column;
+    margin: 1.5rem auto;
+  }
+}
+
+// I need an h1 for accessibility issues, but it's not in the design, so i proceed to hide it.
+.preview-card-container__title {
+  display: none;
+}
+
+/*  
+    ----------------------------------------------------- § Cards
+*/
+
+.preview-card {
+  padding: pxrem(50) pxrem(50) pxrem(50) pxrem(50);
+
+  // First card
+  &:nth-of-type(3n + 1) {
+    background-color: $bright-orange;
+
+    .preview-card__button {
+      color: $bright-orange;
+
+      &:hover {
+        @extend %hover-buttons;
+      }
+    }
+  }
+
+  // Second card
+  &:nth-of-type(3n + 2) {
+    background-color: $dark-cyan;
+
+    .preview-card__button {
+      color: $dark-cyan;
+
+      &:hover {
+        @extend %hover-buttons;
+      }
+    }
+  }
+
+  // Third card
+  &:nth-of-type(3n + 3) {
+    background-color: $very-dark-cyan;
+
+    .preview-card__button {
+      color: $very-dark-cyan;
+
+      &:hover {
+        @extend %hover-buttons;
+      }
+    }
+  }
+} /* end .preview-card */
+
+%hover-buttons {
+  color: $very-light-gray;
+}
+
+.preview-card__img {
+  margin-bottom: 2rem;
+}
+.preview-card__text {
+  @extend .m0p0;
+  line-height: 1.7em;
+  margin-bottom: 1.5em;
+}
+
+.preview-card__button {
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  border: 2px solid $very-light-gray;
+  background-color: $very-light-gray;
+
+  &:hover {
+    background-color: transparent;
+    color: $very-light-gray;
+  }
+}
