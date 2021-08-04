@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution](https://your-solution-url.com)
+- [Live site](https://filippo-b.github.io/preview-card-component/)
 
 ## My process
 
@@ -59,18 +59,17 @@ $base-font-size: 15px;
 }
 
 // Function that converts any pixel measure into rem.
-// Is there a way to strip units from a number?
 @function pxrem($px) {
-  $foo: math.div($px, strip-units($base-font-size));
+  $strip-unit-base-font: math.div($px, strip-units($base-font-size));
 
   // Only two digits after the decimal point. Thanks to https://stackoverflow.com/questions/10369643/rounding-numbers-in-sass-and-adjusting-the-amount-of-decimals/38449536
-  $result: round($foo * 100) / 100;
+  $result: math.div(round($strip-unit-base-font * 100), 100);
 
   @return $result + rem;
 }
 ```
 
-`$base-font-size` is the `font-size` of the html tag. If `$base-font-size` is 15px, that would be 1rem. If for example I want a `padding` of 26px, but I want to use the rem equivalent, I will write: `padding: pxrem(26)`. When compiled in css that will become `padding: 1.7333333333rem`.
+`$base-font-size` is the `font-size` of the html tag. If `$base-font-size` is 15px, that would be 1rem. If for example I want a `padding` of 26px, but I want to use the rem equivalent, I will write: `padding: pxrem(26)`. When compiled in css that will become `padding: 1.73rem`.
 
 ### Useful resources
 
