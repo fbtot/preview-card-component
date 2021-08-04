@@ -177,3 +177,9 @@ a {
     color: $very-light-gray;
   }
 }
+
+@media screen and (min-width: 680px) {
+  .preview-card__link {
+    margin-top: 4rem;
+  }
+}
